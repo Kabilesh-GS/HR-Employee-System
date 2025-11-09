@@ -1,0 +1,10 @@
+.navBar{
+  width: 225px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+}
+.navBar p{
+  padding: 5px 10px;
+}
