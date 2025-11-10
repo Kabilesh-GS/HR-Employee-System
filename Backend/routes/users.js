@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
 
-  DB.query("SELECT * FROM users", (error, result) => {
+  DB.query("SELECT * FROM users WHERE role='EMPLOYEE'", (error, result) => {
     if (error) {
       return res.status(500).json({ message: "SQL Error", error });
     }

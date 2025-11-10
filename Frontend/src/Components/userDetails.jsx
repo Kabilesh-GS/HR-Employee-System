@@ -7,6 +7,7 @@ function userDetails() {
   const [userproject, setUserproject] = useState([]);
   const [userskill, setUserskill] = useState([]);
   const [userseval, setUserseval] = useState([]);
+  const [usercertificates, setUsercertificates] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/users/${id}`)
@@ -32,9 +33,16 @@ function userDetails() {
       .then((data) => setUserseval(data));
   }, [id]);
 
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/certificates/user/${id}`)
+      .then((res) => res.json())
+      .then((data) => setUsercertificates(data));
+  }, [id]);
+
   return (
     <div>
       <h1>{userdata.name}</h1>
+      <p>{userdata.department_name}</p>
       <br />
       <h3>Projects</h3>
       <div>
@@ -89,6 +97,17 @@ function userDetails() {
             </>
           ))
         ) : (<p>No Evaluations found</p>) 
+      }</div>
+      <br/>
+      <h3>Certificates</h3>
+      <div>{
+        usercertificates.length > 0 ? (
+          usercertificates.map((e) => (
+            <div>
+              <p>{e.cert_name} - {e.issued_by}</p>
+            </div>
+          ))
+        ) : (<p>No Certificates found</p>) 
       }</div>
     </div>
   );
