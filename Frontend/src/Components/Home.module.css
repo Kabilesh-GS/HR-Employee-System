@@ -2,7 +2,12 @@
   cursor: pointer;
   margin: 10px 10px;
   width: 100vh;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 .userCard:hover {
-  background-color: #d1cfcf;
+  background-color: #b1b1b148;
+}
+.headingWelcome{
+  padding: 10px 20px;
 }

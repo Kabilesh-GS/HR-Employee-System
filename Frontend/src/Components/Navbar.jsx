@@ -4,6 +4,7 @@ import style from './Navbar.module.css';
 function Navbar() {
   return ( 
     <div className={style.navBar}>
+      <h3>HR Assistant</h3>
       <p><Link to="/">Home</Link></p>
       <p><Link to="/addUser">Add user</Link></p>
       <p><Link to="/onGoingProjects">Ongoing Projects</Link></p>

@@ -1,3 +1,5 @@
+import style from './Adduser.module.css';
+
 function Adduser() {
 
   const handleSubmit = async (e) => {
@@ -21,8 +23,8 @@ function Adduser() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} style={{display: 'flex',flexDirection: 'column'}}>
+    <div className={style.container}>
+      <form onSubmit={handleSubmit} className={style.form}>
         <label>Name</label>
         <input type="text" name="name" required placeholder="Name"/>
         <label>Email</label>

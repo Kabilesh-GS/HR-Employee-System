@@ -1,0 +1,15 @@
+.headingProjects{
+  padding: 10px 10px;
+}
+
+.projectContainer{
+  background-color: rgba(136, 136, 136, 0.373);
+  padding: 10px 15px;
+  margin: 10px 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.projectContainer p{
+  font-size: 20px;
+}

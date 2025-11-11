@@ -20,15 +20,18 @@ function Home() {
   }
 
   return (
-    <div className={style.homeContainer}>{
-     userdata.map((user) => (
-        <div key={user.user_id} onClick={() => displaydetail(user)} className={style.userCard}>
-          <h2>{user.name}</h2>
-          <p>Email: {user.email}</p>
-          <p>Position: {user.role}</p>
-        </div>
-     )) 
-    }</div>
+    <div>
+      <h2 className={style.headingWelcome}>Welcome!</h2>
+      <div className={style.homeContainer}>{
+      userdata.map((user) => (
+          <div key={user.user_id} onClick={() => displaydetail(user)} className={style.userCard}>
+            <h2>{user.name}</h2>
+            <p><strong>Email:</strong> {user.email}</p>
+            <p><strong>Position:</strong> {user.role}</p>
+          </div>
+      )) 
+      }</div>
+    </div>
   )
 }
 
