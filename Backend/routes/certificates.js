@@ -23,4 +23,17 @@ router.get("/user/:id", (req,res) => {
   })
 })
 
+router.post('/user/:id', (req, res) => {
+  const { id } = req.params;
+  const { cert_name, issued_by, issue_date } = req.body;
+  const query = 'INSERT INTO certificates (user_id, cert_name, issued_by, issue_date) VALUES (?, ?, ?, ?)';
+  DB.query(query, [id, cert_name, issued_by, issue_date], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: 'Error adding certificate', error: err });
+    }
+    res.status(201).json({ message: 'Certificate added successfully', certId: result.insertId });
+  });
+});
+
 export default router;

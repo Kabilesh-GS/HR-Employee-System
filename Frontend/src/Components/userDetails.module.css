@@ -1,0 +1,34 @@
+.container {
+  margin: 10px 15px;
+  padding: 10px 15px;
+}
+
+.bar {
+  width: 250px;
+  height: 10px;
+  margin-bottom: 10px;
+  background: none;
+}
+.bar::-webkit-progress-value {
+  background-color: #f26d26;
+  border-radius: 10px;
+}
+.bar::-webkit-progress-bar {
+  background-color: #d3d3d3;
+  border-radius: 10px;
+}
+.subHeading {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 300px;
+  padding: 10px 10px;
+}
+.projectCard:hover {
+  background-color: rgba(171, 171, 171, 0.223);
+  border-radius: 10px;
+}

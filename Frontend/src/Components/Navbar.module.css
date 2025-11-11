@@ -1,23 +1,40 @@
-.navBar{
+.navBar {
   width: 225px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: rgb(19, 19, 19);
 }
-.navBar p{
+.navBar p {
   padding: 5px 10px;
 }
-.navBar h3{
+.navBar h3 {
   color: #f26d26;
   padding: 15px 10px;
   border-bottom: 1px solid gray;
 }
-.navBar p a{
+.navBar p a {
   text-decoration: none;
   color: white;
 }
-.navBar p a:hover{
+.navBar p a:hover {
   color: lightgray;
   transform: scale(1.2);
+}
+.userSection {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid gray;
+}
+.userName {
+  color: #f26d26;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.logout {
+  color: white;
+  cursor: pointer;
+}
+.logout:hover {
+  color: lightgray;
 }
