@@ -10,6 +10,7 @@ function userDetails() {
   const [userskill, setUserskill] = useState([]);
   const [userseval, setUserseval] = useState([]);
   const [usercertificates, setUsercertificates] = useState([]);
+  const [popup, setPopup] = useState(false);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -52,6 +53,29 @@ function userDetails() {
       .then((res) => res.json())
       .then((data) => setUsercertificates(data));
   }, [id]);
+
+  const addCertificate = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      user_id : id,
+      cert_name: e.target.certificateName.value,
+      issued_by: e.target.issuedBy.value,
+      date_obtained: e.target.date.value,
+    }
+
+    const postfrom = await fetch(`http://localhost:3001/api/certificates/user/${id}`, {
+      method: 'POST',
+      headers : {
+        "Content-Type" : "application/json"
+      },
+      body : JSON.stringify(formData)
+    })
+    const data = await postfrom.json();
+    console.log(data);
+    alert("Certificate Added");
+    setPopup(false);
+  }
 
   return (
     <div className={style.container}>
@@ -132,7 +156,20 @@ function userDetails() {
         )}
       </div>
       <br />
-      <h3 className={style.subHeading}>Certificates</h3>
+      <div className={style.subHeading}><h3>Certificates</h3><span onClick={() => {setPopup(true)}}>Add</span></div>
+      {
+        popup && (
+          <form onSubmit={addCertificate}>
+            <input type="text" name="certificateName" required placeholder="Certificate Name"/>
+            <input type="text" name="issuedBy" required placeholder="Issued By"/> 
+            <input type="date" name="date" required /> 
+            <div>
+              <button type="submit">ADD</button>
+              <button onClick={() => {setPopup(false)}}>CLOSE</button>
+            </div>
+          </form>
+        )
+      }
       <div>
         {usercertificates.length > 0 ? (
           usercertificates.map((e) => (

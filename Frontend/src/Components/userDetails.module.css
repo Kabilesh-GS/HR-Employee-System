@@ -20,6 +20,14 @@
 .subHeading {
   margin-top: 0px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.subHeading span{
+  background-color: rgba(171, 171, 171, 0.223);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .projectCard {
   display: flex;
